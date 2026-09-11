@@ -1,0 +1,6 @@
+id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,video,explanation
+1,1,short_answer,main,,Replace with your own question.,answer,,,,,Replace with why the answer is correct.
+2,1,true_false,preview,1,Replace with an easy true/false intro.,,true,,,,
+3,1,select_blank,exercise,1,Replace with a fill-in-the-blank practice question.,answer|wrong1|wrong2,0,,,,
+4,1,multiple_choice,exercise,1,Replace with a multiple-choice practice question.,answer|wrong1|wrong2,0,,,,
+5,1,true_false,exercise,1,Replace with a true/false practice statement.,,true,,,,
