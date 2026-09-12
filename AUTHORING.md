@@ -252,6 +252,18 @@ A malformed row (unknown `unit_id`, a `type_answer` with empty `options`, an
 per-card error naming the offending row — nothing partial gets written.
 `validate_course.py --source` catches this before you even get as far as an import.
 
+### `glossary.csv` — one row per term, optional
+
+Powers the app's tap-to-define feature (see the app repo's `docs/GLOSSARY.md`)
+— a course with no real jargon should ship none at all, not an empty file.
+
+| column | required | meaning |
+|---|---|---|
+| `term` | yes | the exact word/phrase as it appears in card text — matching is whole-word, case-insensitive |
+| `definition` | yes | plain-English, humanized — not a restatement of the term itself |
+| `link` | no | an external URL for a "Learn more" button |
+| `introduced_by_card_id` | strongly recommended | the `cards.csv` `id` of the card that actually teaches this term — lets `tools/check_key_term_usage.py` (in the `yaaddi-courses` catalog repo) verify no earlier card uses the term before it's taught. The app itself ignores this column entirely (see the app repo's `docs/GLOSSARY.md`) — it's review tooling only. Missing it is a warning, not a hard error, but fill it in for every new term you add. |
+
 ## Generating a language course from a vocabulary list
 
 For a "teach language A to language B speakers" course (e.g. English for
